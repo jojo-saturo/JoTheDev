@@ -1,5 +1,6 @@
 
 import { Moon, Sun } from "lucide-react";
+import { motion } from "motion/react";
 import { useThemeStore } from "../stores/themeStore";
 
 function ThemeToggle() {
@@ -9,15 +10,24 @@ function ThemeToggle() {
   const isDark = theme === "dark";
 
   return (
-    <button
+    <motion.button
       type="button"
+      whileHover={{ scale: 1.08, rotate: 5 }}
+      whileTap={{ scale: 0.9 }}
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
       title={`Switch to ${isDark ? "light" : "dark"} theme`}
-      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] transition-all duration-300 hover:scale-105 hover:opacity-80"
+      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--accent)] transition-colors duration-300 hover:border-[var(--accent)] hover:bg-[var(--surface-hover)]"
     >
-      {isDark ? <Sun size={19} /> : <Moon size={19} />}
-    </button>
+      <motion.span
+        key={theme}
+        initial={{ opacity: 0, rotate: -45, scale: 0.7 }}
+        animate={{ opacity: 1, rotate: 0, scale: 1 }}
+        transition={{ duration: 0.2 }}
+      >
+        {isDark ? <Sun size={19} /> : <Moon size={19} />}
+      </motion.span>
+    </motion.button>
   );
 }
 

@@ -87,7 +87,8 @@ function Home() {
           >
             <Link
               to="/proof-of-work"
-              className="group inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 font-semibold text-[#0d0d0d] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_28px_color-mix(in_srgb,var(--accent)_30%,transparent)]"
+
+            className="group inline-flex items-center gap-2 rounded-xl bg-[var(--cta)] px-6 py-3.5 font-semibold text-[var(--cta-text)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:brightness-110"
             >
               Explore my work
               <ArrowRight
@@ -98,7 +99,7 @@ function Home() {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-3.5 font-semibold text-[var(--text)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent-secondary)]"
+              className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-6 py-3.5 font-semibold text-[var(--text)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent-secondary)] hover:text-[var(--accent-secondary)]"
             >
               Let's connect
             </Link>
