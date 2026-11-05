@@ -65,7 +65,7 @@ function ProofOfWork() {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section className="relative isolate min-h-screen overflow-hidden px-6 py-20 sm:py-24">
+    <section className="relative isolate min-h-screen overflow-hidden px-4 py-14 sm:px-6 sm:py-20 lg:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-40 top-32 -z-10 h-80 w-80 rounded-full bg-[var(--accent)]/10 blur-[120px]"
@@ -101,7 +101,7 @@ function ProofOfWork() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:mt-14 sm:grid-cols-3"
         >
           {[
             { value: "04", label: "Projects & explorations" },
@@ -123,13 +123,13 @@ function ProofOfWork() {
         </motion.div>
 
         {/* Filter controls */}
-        <div className="mt-16 flex flex-wrap items-center gap-3">
+        <div className="mt-12 flex flex-wrap items-center gap-2 sm:mt-16 sm:gap-3">
           {filters.map((filter) => (
             <button
               key={filter}
               type="button"
               onClick={() => setActiveFilter(filter)}
-              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
+              className={`rounded-full border px-4 py-2.5 text-xs sm:px-5 sm:text-sm text-sm font-medium transition-all duration-200 ${
                 activeFilter === filter
                   ? "border-[var(--accent)] bg-[var(--accent)] text-[#0d0d0d]"
                   : "border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
@@ -143,7 +143,7 @@ function ProofOfWork() {
         {/* Project cards */}
         <motion.div
           layout
-          className="mt-8 grid gap-6 md:grid-cols-2"
+          className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
@@ -175,9 +175,9 @@ function ProofOfWork() {
                   </span>
                 </div>
 
-                <div className="p-6 sm:p-8">
+                <div className="p-5 sm:p-7 lg:p-8">
                   <div className="flex items-start justify-between gap-4">
-                    <h2 className="text-xl font-bold text-[var(--text)] sm:text-2xl">
+                    <h2 className="min-w-0 break-words text-lg font-bold text-[var(--text)] sm:text-xl lg:text-2xl">
                       {project.title}
                     </h2>
                     {project.featured && (
@@ -238,7 +238,7 @@ function ProofOfWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 text-center sm:p-12"
+          className="mt-14 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 text-center sm:mt-20 sm:p-10 lg:p-12"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
             More coming soon

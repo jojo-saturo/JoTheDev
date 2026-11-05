@@ -1,87 +1,76 @@
 
-import { Mail, ArrowUpRight } from "lucide-react";
-
-const socialLinks = [
-  {
-    name: "GitHub",
-    href: "https://github.com/jojo-saturo",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/",
-  },
-  {
-    name: "Email",
-    href: "mailto:hello@example.com",
-  },
-];
+import { motion } from "motion/react";
+import { ArrowUp, ArrowUpRight, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 py-8 transition-colors duration-300">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        {/* Brand and tagline */}
-        <div>
-          <p className="font-bold text-[var(--text)]">
-            MyBrand<span className="text-emerald-500">.</span>
-          </p>
-
-          <p className="mt-1 text-sm text-[var(--muted)]">
-            Building ideas into digital experiences.
-          </p>
-        </div>
-
-        {/* Social links */}
-        <div className="flex flex-wrap items-center gap-4">
-          {socialLinks.map(({ name, href }) => (
-            <a
-              key={name}
-              href={href}
-              aria-label={name}
-              title={name}
-              target={name !== "Email" ? "_blank" : undefined}
-              rel={name !== "Email" ? "noreferrer" : undefined}
-              className="flex items-center gap-2 text-sm text-[var(--muted)] transition-colors hover:text-emerald-500"
+    <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 py-10 transition-colors duration-300">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+          {/* Brand */}
+          <div>
+            <Link
+              to="/"
+              className="text-xl font-bold tracking-tight text-[var(--text)]"
             >
-              {name === "Email" && <Mail size={16} />}
-              {name}
+              MyBrand<span className="text-[var(--accent)]">.</span>
+            </Link>
+
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              Building ideas into digital experiences.
+            </p>
+          </div>
+
+          {/* Social links */}
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/jojo-saturo"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+            >
+              GitHub
             </a>
-          ))}
+
+            <Link
+              to="/contact"
+              className="flex items-center gap-2 text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+            >
+              <Mail size={16} />
+              Contact
+            </Link>
+          </div>
         </div>
 
-        {/* Back to top */}
+        {/* Bottom bar */}
+        <div className="mt-8 flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-[var(--muted)]">
+            © {new Date().getFullYear()} MyBrand. All rights reserved.
+          </p>
 
-        <button
-          type="button"
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: "smooth",
-            });
+          <p className="text-xs text-[var(--muted)]">
+            Designed & built with intention.
+          </p>
 
-            document.documentElement.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: "smooth",
-            });
-
-            document.body.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: "smooth",
-            });
-          }}
-          className="flex items-center gap-1 text-sm text-[var(--muted)] transition-colors hover:text-emerald-500"
-        >
-          Back to top <ArrowUpRight size={16} />
-        </button>
-
-      </div>
-
-      {/* Copyright */}
-      <div className="mx-auto mt-6 max-w-7xl border-t border-[var(--border)] pt-5 text-sm text-[var(--muted)]">
-        © {new Date().getFullYear()} MyBrand. All rights reserved.
+          <motion.button
+            type="button"
+            onClick={scrollToTop}
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Back to top"
+            className="flex h-9 w-9 items-center justify-center self-start rounded-full border border-[var(--border)] text-[var(--muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] sm:self-auto"
+          >
+            <ArrowUp size={16} />
+          </motion.button>
+        </div>
       </div>
     </footer>
   );
