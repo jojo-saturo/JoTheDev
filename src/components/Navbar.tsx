@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Code2,
   House,
   UserRound,
   BriefcaseBusiness,
@@ -11,6 +10,8 @@ import {
   X,
 } from "lucide-react";
 
+// Adjust this path and extension based on your exact setup
+import logo from "../assets/logo.jpeg";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -37,23 +38,25 @@ function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         {/* Brand */}
         <NavLink
-          to="/"
-          onClick={() => setIsMenuOpen(false)}
-          className="group flex shrink-0 items-center gap-2 text-xl font-bold tracking-tight text-[var(--text)]"
-        >
-          <motion.span
-            whileHover={{ rotate: -8, scale: 1.08 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Code2 size={25} className="text-[var(--accent)]" />
-          </motion.span>
-
-          <span>
-            MyBrand
-            <span className="text-[var(--accent)]">.</span>
-          </span>
-        </NavLink>
-
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="group flex shrink-0 items-center gap-2"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    // Keeps the circular edges (pill shape) and subtle border
+                    className="overflow-hidden rounded-full border border-[var(--border)] shadow-sm"
+                  >
+                    <img
+                      src={logo}
+                      alt="JoTheDev Logo"
+                      // Mobile: h-11 w-32 (Clearer and wider than before)
+                      // Tablet/Desktop (sm:): h-14 w-40 (Significantly larger for crisp reading)
+                      className="h-11 w-32 object-cover sm:h-14 sm:w-40"
+                    />
+                  </motion.div>
+                </NavLink>
         {/* Desktop navigation */}
         <div className="hidden items-center gap-5 lg:flex xl:gap-6">
           {navItems.map(({ name, path, icon: Icon }, index) => (
