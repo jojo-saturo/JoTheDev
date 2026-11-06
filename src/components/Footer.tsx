@@ -1,4 +1,3 @@
-
 import { motion } from "motion/react";
 import { ArrowUp, ArrowUpRight, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -19,9 +18,13 @@ function Footer() {
           <div>
             <Link
               to="/"
-              className="text-xl font-bold tracking-tight text-[var(--text)]"
+              className="text-xl font-bold tracking-tight"
             >
-              MyBrand<span className="text-[var(--accent)]">.</span>
+              {/* Using var(--text) ensures it is white in dark mode but remains visible if you toggle to light mode */}
+              <span className="text-[var(--text)]">JoThe</span>
+              {/* Hex color matching the sleek teal/cyan of the 'Dev' in your logo */}
+              <span className="text-[#4fb7b9]">Dev</span>
+              <span className="text-[var(--accent)]">.</span>
             </Link>
 
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -53,7 +56,7 @@ function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[var(--muted)]">
-            © {new Date().getFullYear()} MyBrand. All rights reserved.
+            © {new Date().getFullYear()} JoTheDev. All rights reserved.
           </p>
 
           <p className="text-xs text-[var(--muted)]">
