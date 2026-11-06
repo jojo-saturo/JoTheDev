@@ -10,8 +10,6 @@ import {
   X,
 } from "lucide-react";
 
-// Adjust this path and extension based on your exact setup
-import logo from "../assets/logo.jpeg";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -36,27 +34,37 @@ function Navbar() {
       className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur-xl"
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        {/* Brand */}
+        {/* Brand - Recreated with Text and Code */}
         <NavLink
-                  to="/"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="group flex shrink-0 items-center gap-2"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    // Keeps the circular edges (pill shape) and subtle border
-                    className="overflow-hidden rounded-full border border-[var(--border)] shadow-sm"
-                  >
-                    <img
-                      src={logo}
-                      alt="JoTheDev Logo"
-                      // Mobile: h-11 w-32 (Clearer and wider than before)
-                      // Tablet/Desktop (sm:): h-14 w-40 (Significantly larger for crisp reading)
-                      className="h-11 w-32 object-cover sm:h-14 sm:w-40"
-                    />
-                  </motion.div>
-                </NavLink>
+          to="/"
+          onClick={() => setIsMenuOpen(false)}
+          className="group flex shrink-0 items-center gap-2"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="flex items-center gap-2.5"
+          >
+            {/* 1. The {J} Logo Mark */}
+            <div className="flex items-center text-3xl font-light">
+              <span className="text-[#4fb7b9]">{'{'}</span>
+              <span className="mx-0.5 font-medium text-[#4fb7b9]">J</span>
+              <span className="text-[var(--text)]">{'}'}</span>
+            </div>
+
+            {/* 2. Brand Name & 3. Tagline */}
+            <div className="flex flex-col justify-center pt-0.5">
+              <div className="text-xl font-bold leading-none tracking-tight">
+                <span className="text-[var(--text)]">JoThe</span>
+                <span className="text-[#4fb7b9]">Dev</span>
+              </div>
+              <span className="mt-1 text-[0.55rem] font-medium tracking-[0.22em] text-[var(--muted)]">
+                SOFTWARE DEVELOPER
+              </span>
+            </div>
+          </motion.div>
+        </NavLink>
+
         {/* Desktop navigation */}
         <div className="hidden items-center gap-5 lg:flex xl:gap-6">
           {navItems.map(({ name, path, icon: Icon }, index) => (
