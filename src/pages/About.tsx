@@ -8,6 +8,9 @@ import {
   Terminal,
 } from "lucide-react";
 
+// Adjust path based on where you save animations.ts
+import { fadeUp, fadeUpFast, scaleUp, staggerFast, staggerNormal } from "../lib/animations";
+
 const interests = [
   {
     number: "01",
@@ -73,9 +76,9 @@ function About() {
       <div className="mx-auto max-w-7xl">
         {/* Page introduction */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
           className="max-w-3xl"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)]">
@@ -101,10 +104,10 @@ function About() {
         {/* Story and profile panel */}
         <div className="mt-16 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <motion.article
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
             className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-10"
           >
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
@@ -124,13 +127,11 @@ function About() {
                 and their needs; the other gives me tools to explore ideas and
                 build practical solutions.
               </p>
-
               <p>
                 On the development side, I'm growing my skills in frontend
                 engineering, backend systems, and blockchain technology, with
                 a particular interest in React, Go, Rust, and Solana.
               </p>
-
               <p>
                 I'm still learning, experimenting, and improving. My goal is
                 to keep building useful things, contribute to meaningful
@@ -154,10 +155,10 @@ function About() {
 
           {/* Profile highlight */}
           <motion.aside
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            variants={scaleUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
             className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--background)] p-7 sm:p-10"
           >
             <div
@@ -198,10 +199,10 @@ function About() {
         {/* Interests */}
         <div className="mt-24">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUpFast}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
             className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"
           >
             <div>
@@ -212,20 +213,23 @@ function About() {
                 What I'm exploring
               </h2>
             </div>
-
             <p className="max-w-md text-sm leading-6 text-[var(--muted)]">
               A growing set of interests that shape what I learn and build.
             </p>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {interests.map(({ number, title, description, icon: Icon, color }, index) => (
+          {/* Stagger Container wrapping the mapped items */}
+          <motion.div
+            variants={staggerFast}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid gap-4 sm:grid-cols-2"
+          >
+            {interests.map(({ number, title, description, icon: Icon, color }) => (
               <motion.article
                 key={number}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
+                variants={fadeUpFast}
                 whileHover={{ y: -5 }}
                 className="group rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 transition-colors duration-300 hover:border-[var(--accent)]/50 sm:p-8"
               >
@@ -236,31 +240,28 @@ function About() {
                   >
                     <Icon size={23} />
                   </div>
-
                   <span className="font-mono text-xs text-[var(--muted)]">
                     /{number}
                   </span>
                 </div>
-
                 <h3 className="mt-7 text-xl font-semibold text-[var(--text)]">
                   {title}
                 </h3>
-
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
                   {description}
                 </p>
               </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Principles */}
         <div className="mt-24">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUpFast}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
           >
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               My approach
@@ -270,14 +271,18 @@ function About() {
             </h2>
           </motion.div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {principles.map((principle, index) => (
+          {/* Stagger Container wrapping the mapped items */}
+          <motion.div
+            variants={staggerNormal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-8 grid gap-4 md:grid-cols-3"
+          >
+            {principles.map((principle) => (
               <motion.article
                 key={principle.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: index * 0.1 }}
+                variants={fadeUpFast}
                 className="border-l-2 border-[var(--accent)] py-2 pl-5"
               >
                 <h3 className="font-semibold text-[var(--text)]">
@@ -288,7 +293,7 @@ function About() {
                 </p>
               </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

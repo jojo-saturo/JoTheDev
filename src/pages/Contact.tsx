@@ -7,6 +7,7 @@ import {
   MessageCircle,
   Sparkles,
 } from "lucide-react";
+import { fadeUp, slideInFromLeft, slideInFromRight } from "../lib/animations";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -47,11 +48,11 @@ function Contact() {
       />
 
       <div className="mx-auto max-w-7xl">
-        {/* Introduction */}
+
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
           className="max-w-3xl"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)]">
@@ -71,13 +72,12 @@ function Contact() {
           </p>
         </motion.div>
 
-        {/* Contact content */}
+
         <div className="mt-16 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          {/* Contact information */}
           <motion.aside
-            initial={{ opacity: 0, x: -25 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            variants={slideInFromLeft}
+            initial="hidden"
+            animate="visible"
             className="flex flex-col justify-between rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-9"
           >
             <div>
@@ -153,11 +153,11 @@ function Contact() {
             </div>
           </motion.aside>
 
-          {/* Contact form */}
+
           <motion.div
-            initial={{ opacity: 0, x: 25 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            variants={slideInFromRight}
+            initial="hidden"
+            animate="visible"
             className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-9"
           >
             <div className="mb-8">

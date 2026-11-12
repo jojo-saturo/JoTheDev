@@ -6,6 +6,7 @@ import {
   Code2,
   Layers3,
 } from "lucide-react";
+import { fadeUp, fadeUpDelayed, projectCardVariant } from "../lib/animations";
 
 const projects = [
   {
@@ -72,10 +73,11 @@ function ProofOfWork() {
       />
 
       <div className="mx-auto max-w-7xl">
+        // Header section
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
           className="max-w-3xl"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)]">
@@ -96,11 +98,11 @@ function ProofOfWork() {
           </p>
         </motion.div>
 
-        {/* Project overview */}
+        // Project overview
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          variants={fadeUpDelayed}
+          initial="hidden"
+          animate="visible"
           className="mt-10 grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:mt-14 sm:grid-cols-3"
         >
           {[
@@ -122,14 +124,14 @@ function ProofOfWork() {
           ))}
         </motion.div>
 
-        {/* Filter controls */}
+        // Filter controls
         <div className="mt-12 flex flex-wrap items-center gap-2 sm:mt-16 sm:gap-3">
           {filters.map((filter) => (
             <button
               key={filter}
               type="button"
               onClick={() => setActiveFilter(filter)}
-              className={`rounded-full border px-4 py-2.5 text-xs sm:px-5 sm:text-sm text-sm font-medium transition-all duration-200 ${
+              className={`rounded-full border px-4 py-2.5 text-xs sm:px-5 sm:text-sm font-medium transition-all duration-200 ${
                 activeFilter === filter
                   ? "border-[var(--accent)] bg-[var(--accent)] text-[#0d0d0d]"
                   : "border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
@@ -140,7 +142,7 @@ function ProofOfWork() {
           ))}
         </div>
 
-        {/* Project cards */}
+        // Project cards
         <motion.div
           layout
           className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2"
@@ -150,10 +152,11 @@ function ProofOfWork() {
               <motion.article
                 key={project.title}
                 layout
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35, delay: index * 0.06 }}
+                custom={index}
+                variants={projectCardVariant}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
                 whileHover={{ y: -6 }}
                 className="group overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] transition-colors duration-300 hover:border-[var(--accent)]/50"
               >
@@ -232,12 +235,12 @@ function ProofOfWork() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Closing CTA */}
+        // Closing CTA
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="mt-14 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 text-center sm:mt-20 sm:p-10 lg:p-12"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
