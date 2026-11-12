@@ -27,7 +27,7 @@ const projects = [
       "An interactive developer portfolio designed to showcase my journey, skills, projects, and creative approach.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Motion"],
     github: "https://github.com/jojo-saturo",
-    demo: "https://webpage-nu-one.vercel.app",
+    demo: "jothedev.niyitripplejoejoejoe.workers.dev",
     status: "In progress",
     featured: true,
   },
@@ -98,7 +98,7 @@ function ProofOfWork() {
           </p>
         </motion.div>
 
-        // Project overview
+
         <motion.div
           variants={fadeUpDelayed}
           initial="hidden"
@@ -124,7 +124,7 @@ function ProofOfWork() {
           ))}
         </motion.div>
 
-        // Filter controls
+
         <div className="mt-12 flex flex-wrap items-center gap-2 sm:mt-16 sm:gap-3">
           {filters.map((filter) => (
             <button
@@ -142,7 +142,6 @@ function ProofOfWork() {
           ))}
         </div>
 
-        // Project cards
         <motion.div
           layout
           className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2"
@@ -235,7 +234,7 @@ function ProofOfWork() {
           </AnimatePresence>
         </motion.div>
 
-        // Closing CTA
+
         <motion.div
           variants={fadeUp}
           initial="hidden"
