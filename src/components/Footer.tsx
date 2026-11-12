@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowUp, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -14,15 +14,15 @@ function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 py-10 transition-colors duration-300">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          {/* Brand */}
+          // Brand
           <div>
             <Link
               to="/"
               className="text-xl font-bold tracking-tight"
             >
-              {/* Using var(--text) ensures it is white in dark mode but remains visible if you toggle to light mode */}
+
               <span className="text-[var(--text)]">JoThe</span>
-              {/* Hex color matching the sleek teal/cyan of the 'Dev' in your logo */}
+
               <span className="text-[#4fb7b9]">Dev</span>
               <span className="text-[var(--accent)]">.</span>
             </Link>
@@ -32,7 +32,7 @@ function Footer() {
             </p>
           </div>
 
-          {/* Social links */}
+          // Social links
           <div className="flex items-center gap-6">
             <a
               href="https://github.com/jojo-saturo"
@@ -53,7 +53,7 @@ function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        // Bottom bar
         <div className="mt-8 flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[var(--muted)]">
             © {new Date().getFullYear()} JoTheDev. All rights reserved.
