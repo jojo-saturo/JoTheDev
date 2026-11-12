@@ -27,7 +27,7 @@ const skills = ["React", "TypeScript", "Go", "Rust", "Solana"];
 function Home() {
   return (
     <section className="relative isolate overflow-hidden">
-      // Ambient background effects
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 -top-40 -z-10 h-80 w-80 rounded-full bg-[var(--accent)]/10 blur-[110px] sm:h-96 sm:w-96"
@@ -77,7 +77,7 @@ function Home() {
             products.
           </motion.p>
 
-          // Action buttons
+
           <motion.div
             variants={fadeUpSmall}
             className="mt-8 flex flex-col gap-3 min-[420px]:flex-row sm:mt-9 sm:gap-4"
@@ -101,7 +101,7 @@ function Home() {
             </Link>
           </motion.div>
 
-          // Skills
+
           <motion.div
             variants={fadeIn}
             className="mt-10 sm:mt-12"
@@ -130,7 +130,7 @@ function Home() {
           </motion.div>
         </motion.div>
 
-        // Visual panel
+
         <motion.div
           variants={slideInRight}
           initial="hidden"

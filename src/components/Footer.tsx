@@ -14,7 +14,7 @@ function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--surface)] px-6 py-10 transition-colors duration-300">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          // Brand
+
           <div>
             <Link
               to="/"
@@ -32,7 +32,7 @@ function Footer() {
             </p>
           </div>
 
-          // Social links
+
           <div className="flex items-center gap-6">
             <a
               href="https://github.com/jojo-saturo"
@@ -53,7 +53,7 @@ function Footer() {
           </div>
         </div>
 
-        // Bottom bar
+
         <div className="mt-8 flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[var(--muted)]">
             © {new Date().getFullYear()} JoTheDev. All rights reserved.
