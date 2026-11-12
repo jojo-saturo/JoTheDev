@@ -73,7 +73,6 @@ function ProofOfWork() {
       />
 
       <div className="mx-auto max-w-7xl">
-        // Header section
         <motion.div
           variants={fadeUp}
           initial="hidden"
