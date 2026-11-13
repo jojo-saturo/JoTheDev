@@ -142,7 +142,7 @@ function Home() {
             animate="animate"
             className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-2xl sm:rounded-3xl sm:p-7"
           >
-            // Code window header
+
             <div className="flex items-center justify-between border-b border-[var(--border)] pb-4 sm:pb-5">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] sm:h-3 sm:w-3" />

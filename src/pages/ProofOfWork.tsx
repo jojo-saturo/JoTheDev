@@ -27,7 +27,7 @@ const projects = [
       "An interactive developer portfolio designed to showcase my journey, skills, projects, and creative approach.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Motion"],
     github: "https://github.com/jojo-saturo",
-    demo: "jothedev.niyitripplejoejoejoe.workers.dev",
+    demo: "https://jothedev.niyitripplejoejoejoe.workers.dev",
     status: "In progress",
     featured: true,
   },
@@ -186,6 +186,7 @@ function ProofOfWork() {
                         Featured
                       </span>
                     )}
+
                   </div>
 
                   <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
